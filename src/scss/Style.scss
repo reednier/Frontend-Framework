@@ -30,35 +30,54 @@ $sidebar-width: 280px;
 
 /* Main Content Styles */
 .main-content {
-    margin-left: 40px; /* Adjust the content margin to avoid overlap */
+    margin-left: 300px; /* Ensure content stays clear of the sidebar */
     padding: 20px;
-    transition: margin-left 0.3s ease-in-out;
+    max-width: calc(100% - 300px); /* Dynamically adjust content width */
+    box-sizing: border-box;
 }
 
-/* When Sidebar is Hovered */
-.sidebar:hover + .main-content {
-    margin-left: 280px; /* Adjust content position when sidebar is fully visible */
+/* Carousel Container */
+.carousel-container {
+    max-width: 400px; /* Make the container smaller */
+    margin: 20px auto; /* Center the carousel horizontally */
+    padding: 10px 15px; /* Add minimal padding around the carousel */
+    box-sizing: border-box; /* Prevent padding from affecting total width */
+    background-color: #fff; /* Optional: Add background for contrast */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* Carousel Styling */
+.carousel {
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5px; /* Internal padding for the carousel */
+}
+
+/* Carousel Image */
+.carousel-img {
+    width: 100%; /* Ensure image fits the container */
+    max-height: 200px; /* Reduce image height */
+    object-fit: cover; /* Maintain aspect ratio */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 80%;
-        left: -75%;
-    }
-
-    .sidebar:hover {
-        left: 0;
-    }
-
     .main-content {
-        margin-left: 0;
+        margin-left: 0; /* Collapse sidebar */
+        max-width: 100%; /* Allow content to use full width */
     }
 
-    .sidebar:hover + .main-content {
-        margin-left: 80%;
+    .carousel-container {
+        max-width: 90%; /* Expand carousel for smaller screens */
+        padding: 10px; /* Adjust padding for better spacing */
+    }
+
+    .carousel-img {
+        max-height: 180px; /* Reduce image height for smaller screens */
     }
 }
+
 
 /* Main Content Styles */
 .main-content {
